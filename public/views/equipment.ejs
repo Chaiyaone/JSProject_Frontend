@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>รายการอุปกรณ์</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Kanit", sans-serif;
+    }
+    .background {
+      position: absolute;
+      inset: 0;
+      background: url("../static/bg.png") no-repeat center center/cover;
+      filter: blur(5px);
+      z-index: -1;
+    }
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #007BFF;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    th,
+    td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #007BFF;
+      color: white;
+      font-weight: 500;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .add-button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    .add-button:hover {
+      background-color: #218838;
+    }
+
+    .delete-button {
+      background: none;
+      border: none;
+      color: #dc3545;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .delete-button:hover {
+      color: #c82333;
+    }
+
+    .no-data {
+      text-align: center;
+      padding: 20px;
+      color: #6c757d;
+      font-style: italic;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 30px;
+    }
+
+    .delete-button {
+      background: none;
+      border: none;
+      color: #dc3545;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .delete-button:hover {
+      color: #c82333;
+    }
+
+    .edit-button {
+      background: none;
+      border: none;
+      color: #007BFF;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .edit-button:hover {
+      color: #0056b3;
+    }
+  </style>
+  <script>
+    function confirmDelete(equipmentId) {
+      const isConfirmed = confirm("คุณแน่ใจหรือไม่ว่าต้องการลบอุปกรณ์นี้?");
+      if (isConfirmed) {
+        window.location.href = `/equipment/delete/${equipmentId}`;
+      }
+    }
+    function confirmEdit(equipmentId) {
+      const isConfirmed = confirm("คุณแน่ใจหรือไม่ว่าต้องการแก้ไขอุปกรณ์นี้?");
+      if (isConfirmed) {
+        window.location.href = `/equipment/delete/${equipmentId}`;
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="background"></div>
+  <div class="container">
+    <h1>รายการอุปกรณ์</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>ชื่ออุปกรณ์</th>
+          <th>ประเภท</th>
+          <th>จำนวนครั้งที่ซ่อม</th>
+          <th>วันที่เพิ่ม</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (equipment.length> 0) { %>
+          <% equipment.forEach(equipment=> { %>
+            <tr>
+              <td>
+                <%= equipment.id %>
+              </td>
+              <td>
+                <%= equipment.equipment_name %>
+              </td>
+              <td>
+                <%= equipment.equipment_type %>
+              </td>
+              <td>
+                <%= equipment.repair_count %>
+              </td>
+              <td>
+                <%= new Date(equipment.equipment_add).toLocaleDateString() %>
+              </td>
+              <td>
+                <div class="action-buttons">
+                  <button onclick="confirmDelete(<%= equipment.id %>)" class="delete-button">Delete</button>
+                  <button onclick="confirmEdit(<%= equipment.id %>)" class="edit-button">Edit</button>
+                </div>
+              </td>
+            </tr>
+            <% }) %>
+              <% } else { %>
+                <tr>
+                  <td colspan="6" class="no-data">ไม่มีข้อมูลอุปกรณ์</td>
+                </tr>
+                <% } %>
+      </tbody>
+    </table>
+    <button class="add-button" onclick="window.location.href='equipment_add'">เพิ่มอุปกรณ์</button>
+  </div>
+</body>
+
+</html>
