@@ -32,7 +32,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* ทำให้ body สูงเต็มหน้าจอ */
+            min-height: 100vh;
+            /* ทำให้ body สูงเต็มหน้าจอ */
             padding: 20px;
         }
 
@@ -114,14 +115,14 @@
     <div class="background"></div>
     <div class="container">
         <h1>Add Equipment</h1>
-        <form action="/equipment_add" method="post">
+        <form action="/eq_add" method="post">
             <label for="equipment_name">Name:</label>
             <input type="text" name="equipment_name" id="equipment_name" required>
             <label for="equipment_type">Type:</label>
             <input type="text" name="equipment_type" id="equipment_type" required>
             <input type="submit" value="Add">
         </form>
-        <a href="/equipment" class="back-link">Back to List</a>
+        <a href="/eq" class="back-link">Back to List</a>
     </div>
 </body>
 
