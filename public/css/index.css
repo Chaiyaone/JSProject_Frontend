@@ -38,7 +38,7 @@
 
 .stats-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2x2 Grid */
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
@@ -75,28 +75,5 @@
 .stat-card a {
     color: #007BFF;
 }
-/* Logout Button */
-.logout-container {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
 
-.logout-button {
-    background-color: #dc3545; /* สีแดง */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
 
-.logout-button:hover {
-    background-color: #c82333; /* สีแดงเข้มเมื่อ hover */
-}
-
-.logout-button i {
-    margin-right: 8px;
-}
