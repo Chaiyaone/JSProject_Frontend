@@ -1,5 +1,5 @@
 const axios = require("axios");
-const base_url = "https://10.104.21.17:8000";
+const base_url = "https://node76614-jsproject.proen.app.ruk-com.cloud:11612.104.21.17:8000";
 
 exports.getIssuesList = async (req, res) => {
   let page = parseInt(req.query.page) || 1;

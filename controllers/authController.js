@@ -1,5 +1,5 @@
 const axios = require("axios");
-const base_url = "https://10.104.21.17:8000";
+const base_url = "node76614-jsproject.proen.app.ruk-com.cloud:11612";
 
 exports.ShowLogin = (req,res) => {
   res.render('login');
