@@ -1,5 +1,5 @@
 const axios = require("axios");
-const base_url = "http://localhost:5000";
+const base_url = "https://10.104.21.17:8000";
 
 exports.getCompleted = async (req, res) => {
   let page = parseInt(req.query.page) || 1;
