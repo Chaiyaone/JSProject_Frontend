@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script>
-
+        
         document.addEventListener("DOMContentLoaded", function () {
             const tableBody = document.getElementById("equipment-list");
             const rows = Array.from(tableBody.children);
@@ -23,6 +23,11 @@
 
             rows.forEach(row => tableBody.appendChild(row));
         });
+        function convertBuddhistToGregorian(dateStr) {
+            if (!dateStr) return "N/A";
+            let [day, month, year] = dateStr.split("/").map(Number);
+            return `${day}/${month}/${year - 543}`;
+        }
     </script>
 
 </head>

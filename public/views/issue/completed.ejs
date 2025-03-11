@@ -74,10 +74,12 @@
                                 <%= task.status || "ไม่ระบุ" %>
                             </td>
                             <td>
-                                <script>document.write(convertBuddhistToGregorian("<%= task.created_at %>"));</script>
+                                <%= task.created_at %>
+                                <!-- <script>document.write(convertBuddhistToGregorian("<%= task.created_at %>"));</script> -->
                             </td>
                             <td>
-                                <script>document.write(convertBuddhistToGregorian("<%= task.completed_at %>"));</script>
+                                <%= task.completed_at %>
+                                <!-- <script>document.write(convertBuddhistToGregorian("<%= task.completed_at %>"));</script> -->
                             </td>
                         </tr>
                         <% }) %>
