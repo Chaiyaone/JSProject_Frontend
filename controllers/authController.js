@@ -1,5 +1,5 @@
 const axios = require("axios");
-const base_url = "http://10.104.21.17:8000";
+const base_url = "https://10.104.21.17:8000";
 
 exports.ShowLogin = (req,res) => {
   res.render('login');
