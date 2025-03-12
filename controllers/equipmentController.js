@@ -1,5 +1,5 @@
 const axios = require("axios");
-const base_url = "202.151.176.68";
+const base_url = "http://202.151.176.68";
 
 
 exports.getEquipmentList = async (req, res) => {
