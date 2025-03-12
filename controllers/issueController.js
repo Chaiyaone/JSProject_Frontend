@@ -32,7 +32,6 @@ exports.deleteIssue = async (req, res) => {
 
 exports.ShowReport = async (req, res) => {
   try {
-    // ดึงข้อมูลจาก API สำหรับช่างเทคนิค, ผู้ใช้, และอุปกรณ์
     const technicianRes = await axios.get(`${base_url}/users/technicians`);
     const technicians = technicianRes.data;
 
@@ -42,7 +41,6 @@ exports.ShowReport = async (req, res) => {
     const eqRes = await axios.get(`${base_url}/equipment/eq`);
     const equipments = eqRes.data;
 
-    // ส่งข้อมูลไปยัง view
     res.render('issue/report', {
       technicians,
       users,
@@ -52,7 +50,6 @@ exports.ShowReport = async (req, res) => {
     console.error("Error fetching data:", error);
     res.status(500).send("เกิดข้อผิดพลาดในการดึงข้อมูล");
   }
-  // res.render("issue/report");
 };
 
 exports.postIssues = async (req, res) => {
