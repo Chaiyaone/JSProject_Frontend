@@ -55,7 +55,7 @@
     document.addEventListener("DOMContentLoaded", async () => {
     try {
      
-      const technicianRes = await axios.get("https://202.151.176.68/users/technicians"); 
+      const technicianRes = await axios.get("http://202.151.176.68/users/technicians"); 
       const technicians = technicianRes.data; 
       console.log("Technicians Data:", technicians);
       const techSelect = document.getElementById("technician_id");
@@ -68,7 +68,7 @@
       });
 
      
-      const userRes = await axios.get("https://202.151.176.68/users/user");
+      const userRes = await axios.get("http://202.151.176.68/users/user");
       const users = userRes.data; 
       const userSelect = document.getElementById("user_id");
 
@@ -80,7 +80,7 @@
       });
 
     
-      const eqRes = await axios.get("https://202.151.176.68/equipment/eq");
+      const eqRes = await axios.get("http://202.151.176.68/equipment/eq");
       const equipments = eqRes.data; 
       const eqSelect = document.getElementById("equipment_id");
 
