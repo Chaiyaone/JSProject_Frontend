@@ -30,8 +30,29 @@ exports.deleteIssue = async (req, res) => {
   }
 };
 
-exports.ShowReport = (req, res) => {
-  res.render("issue/report");
+exports.ShowReport = async (req, res) => {
+  try {
+    // ดึงข้อมูลจาก API สำหรับช่างเทคนิค, ผู้ใช้, และอุปกรณ์
+    const technicianRes = await axios.get(`${base_url}/users/technicians`);
+    const technicians = technicianRes.data;
+
+    const userRes = await axios.get(`${base_url}/users/user`);
+    const users = userRes.data;
+
+    const eqRes = await axios.get(`${base_url}/equipment/eq`);
+    const equipments = eqRes.data;
+
+    // ส่งข้อมูลไปยัง view
+    res.render('issue/report', {
+      technicians,
+      users,
+      equipments
+    });
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    res.status(500).send("เกิดข้อผิดพลาดในการดึงข้อมูล");
+  }
+  // res.render("issue/report");
 };
 
 exports.postIssues = async (req, res) => {
