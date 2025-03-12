@@ -57,7 +57,7 @@
         
         const technicianRes = await fetch("//202.151.176.68/users/technicians"); 
         const technicians = await technicianRes.json();
-        console.log("Technicians Data:", technicians);
+        console.log("Technicians Data:", technicianRes);
         const techSelect = document.getElementById("technician_id");
 
         technicians.forEach(tech => {
