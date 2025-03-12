@@ -55,7 +55,7 @@
     document.addEventListener("DOMContentLoaded", async () => {
       try {
         
-        const technicianRes = await fetch("//202.151.176.68/users/technicians"); 
+        const technicianRes = await fetch("http://202.151.176.68/users/technicians"); 
         const technicians = await technicianRes.json();
         console.log("Technicians Data:", technicianRes);
         const techSelect = document.getElementById("technician_id");
@@ -68,7 +68,7 @@
         });
 
        
-        const userRes = await fetch("//202.151.176.68/users/user");
+        const userRes = await fetch("http://202.151.176.68/users/user");
         const users = await userRes.json();
         const userSelect = document.getElementById("user_id");
 
@@ -80,7 +80,7 @@
         });
 
       
-        const eqRes = await fetch("//202.151.176.68/equipment/eq");
+        const eqRes = await fetch("http://202.151.176.68/equipment/eq");
         const equipments = await eqRes.json();
         const eqSelect = document.getElementById("equipment_id");
 
