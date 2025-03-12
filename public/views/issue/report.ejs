@@ -53,48 +53,48 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", async () => {
-      try {
-        
-        const technicianRes = await axios.get("http://202.151.176.68/users/technicians"); 
-        const technicians = await technicianRes.json();
-        console.log("Technicians Data:", technicianRes);
-        const techSelect = document.getElementById("technician_id");
+    try {
+     
+      const technicianRes = await axios.get("http://202.151.176.68/users/technicians"); 
+      const technicians = technicianRes.data; 
+      console.log("Technicians Data:", technicians);
+      const techSelect = document.getElementById("technician_id");
 
-        technicians.forEach(tech => {
-          const option = document.createElement("option");
-          option.value = tech.id;
-          option.textContent = tech.username;
-          techSelect.appendChild(option);
-        });
+      technicians.forEach(tech => {
+        const option = document.createElement("option");
+        option.value = tech.id;
+        option.textContent = tech.username;
+        techSelect.appendChild(option);
+      });
 
-       
-        const userRes = await axios.get("http://202.151.176.68/users/user");
-        const users = await userRes.json();
-        const userSelect = document.getElementById("user_id");
+     
+      const userRes = await axios.get("http://202.151.176.68/users/user");
+      const users = userRes.data; 
+      const userSelect = document.getElementById("user_id");
 
-        users.forEach(user => {
-          const option = document.createElement("option");
-          option.value = user.id;
-          option.textContent = user.username;
-          userSelect.appendChild(option);
-        });
+      users.forEach(user => {
+        const option = document.createElement("option");
+        option.value = user.id;
+        option.textContent = user.username;
+        userSelect.appendChild(option);
+      });
 
-      
-        const eqRes = await axios.get("http://202.151.176.68/equipment/eq");
-        const equipments = await eqRes.json();
-        const eqSelect = document.getElementById("equipment_id");
+    
+      const eqRes = await axios.get("http://202.151.176.68/equipment/eq");
+      const equipments = eqRes.data; 
+      const eqSelect = document.getElementById("equipment_id");
 
-        equipments.forEach(eq => {
-          const option = document.createElement("option");
-          option.value = eq.id;
-          option.textContent = eq.equipment_name; 
-          eqSelect.appendChild(option);
-        });
+      equipments.forEach(eq => {
+        const option = document.createElement("option");
+        option.value = eq.id;
+        option.textContent = eq.equipment_name; 
+        eqSelect.appendChild(option);
+      });
 
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    });
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  });
 
   </script>
 
