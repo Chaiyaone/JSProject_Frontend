@@ -12,13 +12,13 @@
   <script>
     function confirmDelete(equipmentId) {
       if (confirm("คุณแน่ใจหรือไม่ว่าต้องการลบอุปกรณ์นี้?")) {
-        window.location.href = `/equipment/delete/${equipmentId}`;
+        window.location.href = `/equipments/delete/${equipmentId}`;
       }
     }
 
     function confirmEdit(equipmentId) {
       if (confirm("คุณแน่ใจหรือไม่ว่าต้องการแก้ไขอุปกรณ์นี้?")) {
-        window.location.href = `/equipment/edit/${equipmentId}`;
+        window.location.href = `/equipments/edit/${equipmentId}`;
       }
     }
 

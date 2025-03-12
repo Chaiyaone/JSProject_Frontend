@@ -54,8 +54,8 @@
   <script>
     document.addEventListener("DOMContentLoaded", async () => {
       try {
-        // โหลดรายชื่อช่าง
-        const technicianRes = await fetch("http://localhost:5000/users/technicians");
+        
+        const technicianRes = await fetch("http://localhost:8000/users/technicians"); 
         const technicians = await technicianRes.json();
         const techSelect = document.getElementById("technician_id");
 
@@ -66,8 +66,8 @@
           techSelect.appendChild(option);
         });
 
-        // โหลดรายชื่อผู้ใช้
-        const userRes = await fetch("http://localhost:5000/users/user");
+       
+        const userRes = await fetch("http://localhost:8000/users/user");
         const users = await userRes.json();
         const userSelect = document.getElementById("user_id");
 
@@ -78,15 +78,15 @@
           userSelect.appendChild(option);
         });
 
-        // โหลดรายชื่ออุปกรณ์
-        const eqRes = await fetch("http://localhost:5000/equipment/eq");
+      
+        const eqRes = await fetch("http://localhost:8000/equipment/eq");
         const equipments = await eqRes.json();
         const eqSelect = document.getElementById("equipment_id");
 
         equipments.forEach(eq => {
           const option = document.createElement("option");
           option.value = eq.id;
-          option.textContent = eq.equipment_name;  // 🔹 เปลี่ยนจาก eq.name เป็น eq.equipment_name
+          option.textContent = eq.equipment_name; 
           eqSelect.appendChild(option);
         });
 
