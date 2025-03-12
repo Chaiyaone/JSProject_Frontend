@@ -1,5 +1,5 @@
 const axios = require("axios");
-const base_url = "http://localhost:8000";
+const base_url = "https://node77143-jsproject.proen.app.ruk-com.cloud";
 
 exports.getCompleted = async (req, res) => {
   let page = parseInt(req.query.page) || 1;
