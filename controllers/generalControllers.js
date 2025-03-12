@@ -1,5 +1,5 @@
 const axios = require("axios");
-const base_url = "https://node77143-jsproject.proen.app.ruk-com.cloud";
+const base_url = "202.151.176.68";
 
 exports.getUser = async (req, res) => {
   let page = parseInt(req.query.page) || 1; 
